@@ -1,0 +1,8 @@
+.inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre filas */
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}

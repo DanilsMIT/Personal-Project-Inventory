@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario La casa del cielo raso</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <header class="header">
+      <img class="header__logo" src="./images/logo.jpg" alt="logo" />
+    </header>
+
+    <main class="content">
+      <input
+        class="search-bar"
+        type="text"
+        id="busqueda"
+        placeholder="Buscar productos..."
+        minlength="0"
+        maxlength="200"
+      />
+
+      <template id="product-template">
+        <li class="product-item">
+          <img
+            class="product-item__image"
+            src="./images/rory.jpg"
+            alt="producto"
+          />
+          <h2 class="product-item__name">Nombre del Producto</h2>
+          <p class="product-item__price">$0.00</p>
+        </li>
+      </template>
+
+      <ul class="inventory-list"></ul>
+    </main>
+  </body>
+</html>
