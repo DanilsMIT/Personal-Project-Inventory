@@ -4,5 +4,9 @@
   gap: 10px; /* Espacio entre filas */
   list-style: none;
   padding: 0;
-  width: 100%;
+
+  /* 👇 La magia del ancho adaptable */
+  width: 95%; /* Ocupa casi todo el ancho en celulares */
+  max-width: 800px; /* Pero nunca crece más de 800px en PC */
+  margin: 0 auto; /* Centra toda la lista perfectamente */
 }

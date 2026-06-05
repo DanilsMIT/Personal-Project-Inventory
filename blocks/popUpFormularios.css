@@ -1,42 +1,97 @@
 /* Estilos internos de los formularios */
+
+/* El título del popup */
 .popup__title {
-  margin: 0 0 20px 0;
+  margin: 20px 0 24px 0; /* Espaciado limpio hacia abajo */
   font-size: 1.5rem;
-  color: #333;
+  color: #1f2937; /* Gris oscuro elegante, casi negro */
+  font-weight: 700;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
+/* El contenedor del formulario */
 .popup__form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espacio uniforme entre los inputs */
+  gap: 16px; /* Espaciado uniforme y moderno entre los inputs */
 }
 
+/* Los campos de texto */
 .popup__input {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 14px 16px; /* Un poco más de altura por dentro para que no se vean flacos */
+  border: 1px solid #d1d5db; /* Gris más suave y premium */
+  border-radius: 8px; /* Bordes un poco más redondeados */
   font-size: 1rem;
+  color: #374151;
+  background-color: #f9fafb; /* Fondo gris ultra claro cuando no están en uso */
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease-in-out;
 }
 
+/* Efecto al hacer clic en el input (El toque Pro) */
 .popup__input:focus {
-  border-color: #27ae60; /* Se pinta de verde al escribir */
+  border-color: #27ae60;
+  background-color: #ffffff; /* Se ilumina a blanco puro al escribir */
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2); /* Anillo de luz verde de enfoque */
 }
 
+/* El botón de guardar/actualizar */
 .popup__button {
-  margin-top: 10px;
-  padding: 12px;
+  margin-top: 10px; /* Separa el botón de los inputs */
+  padding: 14px;
   background-color: #27ae60;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
+  border-radius: 8px; /* Hace juego con los inputs */
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(39, 174, 96, 0.2); /* Sombrita verde sutil */
 }
 
+/* Animación del botón al pasar el mouse */
 .popup__button:hover {
   background-color: #219653;
+  transform: translateY(
+    -1px
+  ); /* Efecto de que se levanta un milímetro hacia ti */
+  box-shadow: 0 6px 8px -1px rgba(39, 174, 96, 0.3);
+}
+
+.popup__button:active {
+  transform: translateY(0); /* Vuelve a bajar cuando le haces clic */
+}
+
+/* El botón de cerrar (X) */
+.popup__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background-color: transparent;
+  color: #9ca3af; /* Gris sutil */
+  border: none;
+  font-size: 2.2rem; /* 3rem era muy grande, 2.2rem es el tamaño perfecto */
+  line-height: 1;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  padding: 0;
+  padding-bottom: 3px; /* Pequeño ajuste óptico para centrar la X perfectamente */
+}
+
+/* Efecto de la X al interactuar */
+.popup__close:hover,
+.popup__close:active {
+  color: #4b5563; /* El icono se oscurece */
+  background-color: #f3f4f6; /* Se pinta un círculo gris de fondo */
 }

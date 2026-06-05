@@ -25,7 +25,7 @@
         minlength="0"
         maxlength="200"
       />
-      <div class="inventory-components" style="margin: 20px 425px">
+      <div class="inventory-components">
         <button
           class="button-add"
           id="btn-add-product"
@@ -46,14 +46,15 @@
 
       <div class="popup" id="product-item__imagen-popup">
         <div class="popup__content popup__content_content_image">
+          <button class="popup__close" type="button">&times;</button>
           <img alt="popUpImagen" class="popup__image" src="" />
         </div>
       </div>
 
       <div class="popup" id="popup-add-product">
         <div class="popup__content">
-          <button class="popup__close" type="button">X</button>
-          <h3 class="popup__title">Nuevo Producto</h3>
+          <button class="popup__close" type="button">&times;</button>
+          <h3 class="popup__title">Agregar Producto</h3>
           <form class="popup__form" id="form-add-product">
             <input
               type="text"
@@ -70,12 +71,6 @@
               class="popup__input"
               step="0.01"
             />
-            <input
-              type="url"
-              name="picture"
-              placeholder="URL de la imagen"
-              class="popup__input"
-            />
             <button type="submit" class="popup__button">Guardar</button>
           </form>
         </div>
@@ -83,32 +78,33 @@
 
       <div class="popup" id="popup-edit-product">
         <div class="popup__content">
-          <button class="popup__close" type="button">X</button>
+          <button class="popup__close" type="button">&times;</button>
           <h3 class="popup__title">Editar Producto</h3>
           <form class="popup__form" id="form-edit-product">
-            <input type="hidden" name="id" id="edit-id" />
-
+            <input
+              type="hidden"
+              class="popup__input"
+              name="editId"
+              id="edit-id"
+            />
             <input
               type="text"
-              name="articulo"
+              name="editArticulo"
               id="edit-articulo"
               required
               class="popup__input"
+              placeholder="Nombre"
             />
             <input
               type="number"
-              name="precio"
+              name="editPrecio"
               id="edit-precio"
               required
               class="popup__input"
               step="0.01"
+              placeholder="precio"
             />
-            <input
-              type="url"
-              name="picture"
-              id="edit-picture"
-              class="popup__input"
-            />
+
             <button type="submit" class="popup__button">Actualizar</button>
           </form>
         </div>

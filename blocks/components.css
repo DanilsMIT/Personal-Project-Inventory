@@ -9,11 +9,12 @@
   font-size: 16px;
 }
 
-/* Contenedor del botón de agregar */
 .inventory-components {
   display: flex;
-  justify-content: flex-end; /* Alinea el botón a la derecha */
-  margin: 20px 425px; /* Mantiene tu margen original */
+  justify-content: flex-end;
+  max-width: 800px; /* Mismo ancho que la lista */
+  margin: 20px auto; /* El 'auto' lo centra perfectamente en cualquier pantalla */
+  padding: 0 20px; /* Un respiro a los lados */
 }
 
 /* El botón circular con el "+" */

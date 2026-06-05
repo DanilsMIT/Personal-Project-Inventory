@@ -7,13 +7,26 @@ export default class APIProductos {
   }
 
   checkResponse(res) {
-    return res.ok ? res.json() : Promise.reject;
-    `Error: ${res.status}`;
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   }
 
-  getProductos() {
-    return fetch(this.#url, { headers: this.#headers }).then((res) =>
-      this.checkResponse(res),
-    );
+  async getProductos() {
+    const response = await fetch(`${this.#url}?select=*&order=id.asc`, {
+      headers: this.#headers,
+    });
+    return await this.checkResponse(response);
+  }
+
+  async updateProducto(data) {
+    const response = await fetch(`${this.#url}?id=eq.${data.editId}`, {
+      method: "PATCH",
+      headers: { ...this.#headers, Prefer: "return=representation" },
+      body: JSON.stringify({
+        id: data.editId,
+        articulo: data.editArticulo,
+        precio: data.editPrecio,
+      }),
+    });
+    return await this.checkResponse(response);
   }
 }

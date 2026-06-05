@@ -1,14 +1,17 @@
 /* Cambiamos el nombre a .product-item porque ya no es una tarjeta */
 .product-item {
   display: flex;
-  align-items: center; /* Alinea verticalmente los 3 elementos */
-  gap: 20px; /* Espacio entre la imagen, el nombre y el precio */
-  padding: 10px;
-  border-bottom: 1px solid #e0e0e0; /* Línea separadora sutil */
+  align-items: center;
+  gap: 20px;
+  padding: 12px 15px; /* Un poquito más de aire por dentro */
+  border-bottom: 1px solid #e0e0e0;
   background: white;
-  margin: 0 425px;
-}
 
+  /* 👇 Hacemos que siga las reglas de la UL */
+  width: 100%;
+  box-sizing: border-box; /* Evita que el padding rompa el ancho */
+  border-radius: 8px; /* Opcional: redondea las esquinas un poco para que se vea más moderno */
+}
 .product-item__image {
   width: 60px; /* Tamaño fijo para la imagen */
   height: 60px;
@@ -57,4 +60,46 @@
 .product-item__edit-btn:hover,
 .product-item__edit-btn:active {
   opacity: 0.6;
+}
+
+/* =========================================
+   MEDIA QUERIES (Modo Celular)
+   ========================================= */
+@media (max-width: 768px) {
+  /* Achicamos un poco el título principal */
+  .header__title {
+    font-size: 1.4rem;
+  }
+
+  /* La barra de búsqueda toma todo el ancho con un poco de margen */
+  .search-bar {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  /* Ajustamos las tarjetas de los productos */
+  .product-item {
+    gap: 10px; /* Juntamos más los elementos */
+    padding: 10px 15px; /* Damos un respiro a los lados para que no pegue con el borde del celular */
+  }
+
+  .product-item__image {
+    width: 50px; /* Imagen ligeramente más pequeña */
+    height: 50px;
+  }
+
+  .product-item__name {
+    font-size: 0.95rem; /* Texto un poquito más pequeño para evitar que se corte */
+  }
+
+  .product-item__price {
+    font-size: 0.95rem;
+    min-width: 60px; /* Menos espacio reservado para el precio */
+  }
+
+  /* Ajustamos el tamaño del popup en celulares */
+  .popup__content {
+    max-width: 90%;
+    padding: 24px 20px;
+  }
 }
