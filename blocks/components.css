@@ -1,0 +1,38 @@
+.search-bar {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 30px auto 30px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+/* Contenedor del botón de agregar */
+.inventory-components {
+  display: flex;
+  justify-content: flex-end; /* Alinea el botón a la derecha */
+  margin: 20px 425px; /* Mantiene tu margen original */
+}
+
+/* El botón circular con el "+" */
+.button-add {
+  width: 45px;
+  height: 45px;
+  font-size: 28px;
+  color: white;
+  background-color: #27ae60; /* Verde haciendo juego con el precio */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-add:hover {
+  background-color: #219653; /* Verde más oscuro al pasar el mouse */
+}

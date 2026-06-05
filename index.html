@@ -10,6 +10,10 @@
   <body class="page">
     <header class="header">
       <img class="header__logo" src="./images/logo.jpg" alt="logo" />
+      <h1 class="header__title">La casa del cielo raso</h1>
+      <h2 class="header__title">
+        <span class="header__highlight">Inventario</span>
+      </h2>
     </header>
 
     <main class="content">
@@ -21,23 +25,92 @@
         minlength="0"
         maxlength="200"
       />
-
+      <div class="inventory-components" style="margin: 20px 425px">
+        <button
+          class="button-add"
+          id="btn-add-product"
+          style="font-size: 1.5rem; padding: 5px 15px; cursor: pointer"
+        >
+          +
+        </button>
+      </div>
       <template id="product-template">
         <li class="product-item">
-          <img
-            class="product-item__image"
-            src="./images/rory.jpg"
-            alt="producto"
-          />
+          <img class="product-item__image" src="" alt="producto" />
           <h2 class="product-item__name">Nombre del Producto</h2>
           <p class="product-item__price">$0.00</p>
+          <button class="product-item__edit-btn" type="button"></button>
         </li>
       </template>
-
       <ul class="inventory-list"></ul>
+
       <div class="popup" id="product-item__imagen-popup">
         <div class="popup__content popup__content_content_image">
           <img alt="popUpImagen" class="popup__image" src="" />
+        </div>
+      </div>
+
+      <div class="popup" id="popup-add-product">
+        <div class="popup__content">
+          <button class="popup__close" type="button">X</button>
+          <h3 class="popup__title">Nuevo Producto</h3>
+          <form class="popup__form" id="form-add-product">
+            <input
+              type="text"
+              name="articulo"
+              placeholder="Nombre del artículo"
+              required
+              class="popup__input"
+            />
+            <input
+              type="number"
+              name="precio"
+              placeholder="Precio"
+              required
+              class="popup__input"
+              step="0.01"
+            />
+            <input
+              type="url"
+              name="picture"
+              placeholder="URL de la imagen"
+              class="popup__input"
+            />
+            <button type="submit" class="popup__button">Guardar</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup" id="popup-edit-product">
+        <div class="popup__content">
+          <button class="popup__close" type="button">X</button>
+          <h3 class="popup__title">Editar Producto</h3>
+          <form class="popup__form" id="form-edit-product">
+            <input type="hidden" name="id" id="edit-id" />
+
+            <input
+              type="text"
+              name="articulo"
+              id="edit-articulo"
+              required
+              class="popup__input"
+            />
+            <input
+              type="number"
+              name="precio"
+              id="edit-precio"
+              required
+              class="popup__input"
+              step="0.01"
+            />
+            <input
+              type="url"
+              name="picture"
+              id="edit-picture"
+              class="popup__input"
+            />
+            <button type="submit" class="popup__button">Actualizar</button>
+          </form>
         </div>
       </div>
     </main>

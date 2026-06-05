@@ -1,0 +1,29 @@
+.header__logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* El texto principal (La casa del cielo raso) */
+.header__title {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif; /* Usa la fuente más moderna del sistema */
+  font-size: 2rem;
+  color: #2c3e50; /* Un azul/gris oscuro, mucho más elegante que el negro puro */
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 800; /* Letra bien gruesa y sólida */
+  letter-spacing: -0.5px; /* Juntar las letras un milímetro le da un look muy moderno */
+  text-transform: uppercase; /* Lo pone todo en mayúsculas automáticamente */
+}
+
+/* La palabra "Inventario" */
+.header__highlight {
+  font-weight: 300; /* Letra muy delgada para hacer contraste */
+  color: #27ae60; /* El mismo verde de tu botón '+' y tus precios */
+  margin-left: 8px; /* Lo separa un poquito del nombre del negocio */
+}

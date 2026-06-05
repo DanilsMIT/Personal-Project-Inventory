@@ -1,0 +1,42 @@
+/* Estilos internos de los formularios */
+.popup__title {
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio uniforme entre los inputs */
+}
+
+.popup__input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.popup__input:focus {
+  border-color: #27ae60; /* Se pinta de verde al escribir */
+}
+
+.popup__button {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.popup__button:hover {
+  background-color: #219653;
+}
