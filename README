@@ -2,33 +2,42 @@
 
 Aplicación web profesional para la gestión de inventarios, diseñada para optimizar el control de productos, precios y stock.
 
-## 🚀 Tecnologías Utilizadas
+## 🚀 Funcionalidades Principales
 
-- **JavaScript (ES6+)**: Lógica orientada a objetos (POO).
-- **Supabase**: Backend como servicio para la persistencia de datos (REST API).
-- **CSS3**: Diseño responsive y modular.
-- **GitHub Pages**: Despliegue continuo.
+### 🔍 Buscador en Tiempo Real
 
-## 🛠 Características Principales
+- **¿Cómo funciona?** Escribe en la barra de búsqueda superior para filtrar tus productos instantáneamente.
+- **Ventaja:** No necesita recargar la página ni realizar consultas adicionales, ya que el buscador filtra directamente sobre los elementos renderizados en el DOM para una experiencia ultra rápida.
 
-- **Gestión de Inventario**: Operaciones CRUD (Crear, Leer, Actualizar, Borrar) conectadas a una base de datos en tiempo real.
-- **Buscador Dinámico**: Filtrado en tiempo real sin recargas de página mediante una clase `Searcher` optimizada.
-- **Confirmaciones Seguras**: Sistema de ventanas modales reutilizables para acciones críticas.
-- **Validación de Datos**: Formateo automático de precios a dos decimales y saneamiento de entradas.
-- **Arquitectura Limpia**: Código organizado en clases independientes (`ProductoClass`, `FormClass`, `LCSRApi`, `ConfirmAction`).
+### ➕ Agregar Productos
 
-## 💻 Instalación y Uso
+- **¿Cómo funciona?** Haz clic en el botón de "más" (`+`) para abrir un formulario.
+- **Acción:** Completa los campos con el nombre del artículo y su precio. Al enviar el formulario, el nuevo producto aparecerá automáticamente en tu inventario.
 
-1. Clona el repositorio: `git clone https://github.com/tu-usuario/proyecto.git`
-2. Configura tu API Key de Supabase en `index.js`.
-3. Abre `index.html` en tu navegador o despliega en GitHub Pages.
+### ✏️ Editar Productos
 
-## 📂 Estructura del Proyecto
+- **¿Cómo funciona?** Cada tarjeta de producto tiene un icono de edición.
+- **Acción:** Al hacer clic, se abre un formulario precargado con los datos actuales. Edita el nombre o el precio y presiona "Actualizar" para guardar los cambios directamente en nuestra base de datos.
 
-- `/components`: Clases principales del sistema.
-- `/pages`: Estilos CSS globales y específicos por componente.
-- `/scripts`: Archivo principal `index.js` que orquesta la aplicación.
+### 🗑 Eliminar Productos
+
+- **¿Cómo funciona?** Esta acción está protegida para evitar errores accidentales.
+- **Acción:** Haz clic derecho (context menu) sobre la tarjeta del producto que deseas borrar.
+- **Seguridad:** Se abrirá una ventana de confirmación (Popup). Debes confirmar la acción para proceder con la eliminación definitiva del elemento.
+
+### 🖼 Visualización de Imágenes
+
+- **¿Cómo funciona?** Si haces clic directamente sobre la imagen de cualquier producto, se abrirá un visor en pantalla completa para que puedas ver el detalle del artículo con comodidad.
+
+## 🛠 Arquitectura del Proyecto
+
+Este proyecto utiliza un enfoque de **Programación Orientada a Objetos (POO)**:
+
+- **`ProductoClass.js`**: Maneja la lógica de creación y comportamiento de cada tarjeta.
+- **`FormClass.js`**: Gestiona el ciclo de vida de los formularios (lectura de datos y eventos).
+- **`LCSRApi.js`**: Orquesta todas las comunicaciones con el backend (Supabase).
+- **`Searcher.js`**: Encapsula la lógica de filtrado eficiente.
 
 ## 🛡 Seguridad
 
-El proyecto implementa prácticas de protección contra XSS utilizando `textContent` para la manipulación del DOM, garantizando que los datos mostrados sean siempre seguros.
+Para garantizar la integridad de los datos, la aplicación sanitiza las entradas de usuario y utiliza métodos de manipulación del DOM seguros (`textContent`), previniendo ataques de inyección de código (XSS).
