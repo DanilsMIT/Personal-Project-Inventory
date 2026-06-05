@@ -1,10 +1,10 @@
 import { openModal } from "./utils.js";
 
-export default class producto {
-  constructor({ producto, precio, link }, template) {
-    this._producto = producto;
+export default class articulo {
+  constructor({ articulo, precio, picture }, template) {
+    this._articulo = articulo;
     this._precio = precio;
-    this._link = link;
+    this._picture = picture;
     this._template = template;
   }
 
@@ -22,7 +22,7 @@ export default class producto {
     );
     const objectPicture = objectPicturePopUp.querySelector(".popup__image");
 
-    objectPicture.src = this._link;
+    objectPicture.src = this._picture;
     openModal(objectPicturePopUp);
   }
 
@@ -37,13 +37,13 @@ export default class producto {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    const producto = this._element.querySelector(".product-item__name");
+    const articulo = this._element.querySelector(".product-item__name");
     const price = this._element.querySelector(".product-item__price");
     const image = this._element.querySelector(".product-item__image");
 
-    producto.textContent = this._producto;
+    articulo.textContent = this._articulo;
     price.textContent = this._precio;
-    image.src = this._link;
+    image.src = this._picture;
 
     return this._element;
   }
