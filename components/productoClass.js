@@ -2,13 +2,19 @@ import { openModal } from "./utils.js";
 export default class producto {
   #id;
   #template;
-  constructor({ id, articulo, precio, picture }, template, handleEditFunction) {
+  constructor(
+    { id, articulo, precio, picture },
+    template,
+    handleEditFunction,
+    handleDeleteFunction,
+  ) {
     this.#id = id;
     this.articulo = articulo;
     this.precio = precio;
     this.picture = picture;
     this.#template = template;
     this.handleEditFunction = handleEditFunction;
+    this.handleDeleteFunction = handleDeleteFunction;
   }
 
   getID() {
@@ -42,13 +48,17 @@ export default class producto {
 
   updateElement(data) {
     this.articulo = data.editArticulo;
-    this.precio = data.editPrecio;
+    this.precio = Number(String(data.editPrecio).replace(",", ".")).toFixed(2);
 
     const articulo = this._element.querySelector(".product-item__name");
     const price = this._element.querySelector(".product-item__price");
 
     articulo.textContent = data.editArticulo;
     price.textContent = data.editPrecio;
+  }
+
+  removeElement() {
+    this._element.remove();
   }
 
   setEventListeners() {
@@ -62,6 +72,9 @@ export default class producto {
       .addEventListener("click", () => {
         this.editElement();
       });
+    this._element.addEventListener("contextmenu", () => {
+      this.handleDeleteFunction(this);
+    });
   }
   generateObject() {
     this._element = this.#getTemplate();
@@ -72,7 +85,9 @@ export default class producto {
     const image = this._element.querySelector(".product-item__image");
 
     articulo.textContent = this.articulo;
-    price.textContent = this.precio;
+    price.textContent = Number(String(this.precio).replace(",", ".")).toFixed(
+      2,
+    );
     image.src = this.picture;
 
     return this._element;

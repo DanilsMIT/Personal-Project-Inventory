@@ -1,13 +1,18 @@
 import producto from "../components/ProductoClass.js";
 import Form from "../components/FormClass.js";
 import APIProductos from "../components/LCSRApi.js";
-import { closePopUps, closeModal } from "../components/utils.js";
+import { closePopUps, closeModal, openModal } from "../components/utils.js";
 import {
   editFormPopup,
   editinputId,
   editinputArticulo,
   editinputPrecio,
+  addFormPopup,
+  addFormOpenButton,
+  confirmPopup,
 } from "../components/constants.js";
+import ConfirmAction from "../components/ConfirmPopUp.js";
+import Searcher from "../components/barraBusqueda.js";
 
 const listaProductos = document.querySelector(".inventory-list");
 
@@ -27,30 +32,38 @@ const ApiProductos = new APIProductos({
 //cerrar popUps
 closePopUps();
 
+//Confirmar Accion
+const confirmDeleteWindow = new ConfirmAction(confirmPopup);
 //renderizar Producto
 let esteProducto = null;
-function renderObjects(object, container) {
+function renderObject(object, container) {
   const objectClass = new producto(
     object,
     "#product-template",
     (thisObject) => {
       esteProducto = thisObject;
-      editinputId.value = objectClass.getID();
+      editinputId.value = thisObject.getID();
       editinputArticulo.value = thisObject.articulo;
       editinputPrecio.value = thisObject.precio;
     },
+    (thisObject) => {
+      confirmDeleteWindow.window(() => {
+        ApiProductos.deleteProducto(thisObject.getID());
+        thisObject.removeElement();
+      });
+    },
   );
   const objectElement = objectClass.generateObject();
-  container.append(objectElement);
+  container.prepend(objectElement);
 }
 //renderizar seccion
 function renderSection(items) {
-  items.forEach((item) => {
-    renderObjects(item, listaProductos);
+  items.reverse().forEach((item) => {
+    renderObject(item, listaProductos);
   });
 }
 
-//Mostrar Productos
+//Obtener Productos
 ApiProductos.getProductos()
   .then((data) => {
     renderSection(data);
@@ -67,4 +80,26 @@ const editProductForm = new Form({
     closeModal(editFormPopup);
   },
 });
-editProductForm.setEventListeners();
+
+//Formulario agregar producto
+addFormOpenButton.addEventListener("click", () => {
+  openModal(addFormPopup);
+});
+
+const addProductForm = new Form({
+  PopupSelector: addFormPopup,
+  handleFormSubmit: (thisInputs) => {
+    ApiProductos.postProducto(thisInputs).then((data) => {
+      renderObject(data[0], listaProductos);
+    });
+    addProductForm.closeForm();
+  },
+});
+
+//barrra de busqueda - IA
+const productSearcher = new Searcher(
+  "#busqueda", // barra de busqueda
+  ".inventory-list", // Lista de elementos
+  ".product-item", // elemento
+  ".product-item__name", // nombre del elemento
+);

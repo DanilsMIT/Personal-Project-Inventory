@@ -1,9 +1,12 @@
+import { closeModal } from "./utils.js";
+
 export default class Form {
   constructor({ PopupSelector, handleFormSubmit }) {
     this._PopupSelector = PopupSelector;
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._PopupSelector.querySelector(".popup__form");
     this._inputs = this._PopupSelector.querySelectorAll(".popup__input");
+    this.setEventListeners();
   }
 
   _getInputValues() {
@@ -20,7 +23,8 @@ export default class Form {
     });
   }
 
-  close() {
+  closeForm() {
     this._form.reset();
+    closeModal(this._PopupSelector);
   }
 }

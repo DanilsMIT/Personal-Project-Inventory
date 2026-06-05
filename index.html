@@ -34,15 +34,6 @@
           +
         </button>
       </div>
-      <template id="product-template">
-        <li class="product-item">
-          <img class="product-item__image" src="" alt="producto" />
-          <h2 class="product-item__name">Nombre del Producto</h2>
-          <p class="product-item__price">$0.00</p>
-          <button class="product-item__edit-btn" type="button"></button>
-        </li>
-      </template>
-      <ul class="inventory-list"></ul>
 
       <div class="popup" id="product-item__imagen-popup">
         <div class="popup__content popup__content_content_image">
@@ -58,14 +49,14 @@
           <form class="popup__form" id="form-add-product">
             <input
               type="text"
-              name="articulo"
+              name="addArticulo"
               placeholder="Nombre del artículo"
               required
               class="popup__input"
             />
             <input
               type="number"
-              name="precio"
+              name="addPrecio"
               placeholder="Precio"
               required
               class="popup__input"
@@ -104,11 +95,36 @@
               step="0.01"
               placeholder="precio"
             />
-
             <button type="submit" class="popup__button">Actualizar</button>
           </form>
         </div>
       </div>
+
+      <div class="popup" id="confirm-popup">
+        <div class="popup__content popup__content_type-small">
+          <button
+            aria-label="Cerrar"
+            class="popup__close"
+            type="button"
+          ></button>
+          <h3 class="popup__title">
+            ¿Estás seguro/a de eliminar este producto?
+          </h3>
+          <button class="button popup__button" id="confirm-btn" type="button">
+            Si
+          </button>
+        </div>
+      </div>
+
+      <template id="product-template">
+        <li class="product-item">
+          <img class="product-item__image" src="" alt="producto" />
+          <h2 class="product-item__name">Nombre del Producto</h2>
+          <p class="product-item__price">$0.00</p>
+          <button class="product-item__edit-btn" type="button"></button>
+        </li>
+      </template>
+      <ul class="inventory-list"></ul>
     </main>
   </body>
   <script type="module" src="./scripts/index.js"></script>

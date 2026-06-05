@@ -1,0 +1,34 @@
+# Inventario LCSR (La Casa del Cielo Raso)
+
+Aplicación web profesional para la gestión de inventarios, diseñada para optimizar el control de productos, precios y stock.
+
+## 🚀 Tecnologías Utilizadas
+
+- **JavaScript (ES6+)**: Lógica orientada a objetos (POO).
+- **Supabase**: Backend como servicio para la persistencia de datos (REST API).
+- **CSS3**: Diseño responsive y modular.
+- **GitHub Pages**: Despliegue continuo.
+
+## 🛠 Características Principales
+
+- **Gestión de Inventario**: Operaciones CRUD (Crear, Leer, Actualizar, Borrar) conectadas a una base de datos en tiempo real.
+- **Buscador Dinámico**: Filtrado en tiempo real sin recargas de página mediante una clase `Searcher` optimizada.
+- **Confirmaciones Seguras**: Sistema de ventanas modales reutilizables para acciones críticas.
+- **Validación de Datos**: Formateo automático de precios a dos decimales y saneamiento de entradas.
+- **Arquitectura Limpia**: Código organizado en clases independientes (`ProductoClass`, `FormClass`, `LCSRApi`, `ConfirmAction`).
+
+## 💻 Instalación y Uso
+
+1. Clona el repositorio: `git clone https://github.com/tu-usuario/proyecto.git`
+2. Configura tu API Key de Supabase en `index.js`.
+3. Abre `index.html` en tu navegador o despliega en GitHub Pages.
+
+## 📂 Estructura del Proyecto
+
+- `/components`: Clases principales del sistema.
+- `/pages`: Estilos CSS globales y específicos por componente.
+- `/scripts`: Archivo principal `index.js` que orquesta la aplicación.
+
+## 🛡 Seguridad
+
+El proyecto implementa prácticas de protección contra XSS utilizando `textContent` para la manipulación del DOM, garantizando que los datos mostrados sean siempre seguros.

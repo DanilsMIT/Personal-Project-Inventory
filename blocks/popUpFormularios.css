@@ -95,3 +95,19 @@
   color: #4b5563; /* El icono se oscurece */
   background-color: #f3f4f6; /* Se pinta un círculo gris de fondo */
 }
+
+/* Esto fuerza a que el contenedor pequeño sea más estrecho y centrado */
+.popup__content_type-small {
+  max-width: 300px; /* Reducimos el ancho significativamente */
+  width: 90%; /* Para que en móviles no toque los bordes */
+  min-height: auto; /* Quitamos la altura mínima de los formularios */
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* Ajuste del botón 'Si' dentro de este cuadro pequeño */
+.popup__content_type-small .popup__button {
+  width: 100%; /* Opcional: si quieres que el botón sea más ancho */
+  max-width: 150px; /* Pero que no se vea gigante */
+  margin: 20px auto 0; /* Centrado automático */
+}
