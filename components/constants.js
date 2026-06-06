@@ -1,3 +1,5 @@
+const listaProductos = document.querySelector(".inventory-list");
+
 const editFormPopup = document.querySelector("#popup-edit-product");
 const editinputId = editFormPopup.querySelector("#edit-id");
 const editinputArticulo = editFormPopup.querySelector("#edit-articulo");
@@ -15,4 +17,5 @@ export {
   addFormPopup,
   addFormOpenButton,
   confirmPopup,
+  listaProductos,
 };

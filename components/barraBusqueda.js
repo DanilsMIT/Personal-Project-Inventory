@@ -1,28 +1,28 @@
-export default class Searcher {
-  constructor(inputSelector, containerSelector, itemSelector, nameSelector) {
-    this._input = document.querySelector(inputSelector);
-    this._container = document.querySelector(containerSelector);
-    this._itemSelector = itemSelector;
-    this._nameSelector = nameSelector;
+export default class BarraDeBusqueda {
+  constructor({ inputBusqueda, contenedorElementos, elemento, elementoName }) {
+    this.inputBarraDeBusqueda = document.querySelector(inputBusqueda);
+    this.contenedorElementos = document.querySelector(contenedorElementos);
+    this.elemento = elemento;
+    this.elementoName = elementoName;
 
     this.setEventListeners();
   }
 
-  _filterList(event) {
-    const term = event.target.value.toLowerCase();
-    const items = this._container.querySelectorAll(this._itemSelector);
+  buscarElementos(terminoDeBusqueda) {
+    const busqueda = terminoDeBusqueda.target.value.toLowerCase();
+    const elementos = this.contenedorElementos.querySelectorAll(this.elemento);
 
-    items.forEach((item) => {
-      const name = item
-        .querySelector(this._nameSelector)
+    elementos.forEach((item) => {
+      const nombre = item
+        .querySelector(this.elementoName)
         .textContent.toLowerCase();
-
-      // Si incluye el término, lo mostramos, si no, lo ocultamos
-      item.style.display = name.includes(term) ? "" : "none";
+      item.style.display = nombre.includes(busqueda) ? "" : "none";
     });
   }
 
   setEventListeners() {
-    this._input.addEventListener("input", (e) => this._filterList(e));
+    this.inputBarraDeBusqueda.addEventListener("input", (event) =>
+      this.buscarElementos(event),
+    );
   }
 }

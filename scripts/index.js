@@ -3,6 +3,7 @@ import Form from "../components/FormClass.js";
 import APIProductos from "../components/LCSRApi.js";
 import { closePopUps, closeModal, openModal } from "../components/utils.js";
 import {
+  listaProductos,
   editFormPopup,
   editinputId,
   editinputArticulo,
@@ -12,9 +13,7 @@ import {
   confirmPopup,
 } from "../components/constants.js";
 import ConfirmAction from "../components/ConfirmPopUp.js";
-import Searcher from "../components/barraBusqueda.js";
-
-const listaProductos = document.querySelector(".inventory-list");
+import BarraDeBusqueda from "../components/barraBusqueda.js";
 
 //API
 const apiKey =
@@ -96,10 +95,10 @@ const addProductForm = new Form({
   },
 });
 
-//barrra de busqueda - IA
-const productSearcher = new Searcher(
-  "#busqueda", // barra de busqueda
-  ".inventory-list", // Lista de elementos
-  ".product-item", // elemento
-  ".product-item__name", // nombre del elemento
-);
+//barrra de busqueda
+const productSearcher = new BarraDeBusqueda({
+  inputBusqueda: "#busqueda",
+  contenedorElementos: ".inventory-list",
+  elemento: ".product-item",
+  elementoName: ".product-item__name",
+});
